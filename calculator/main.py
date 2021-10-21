@@ -1,22 +1,27 @@
-""" This is the increment function"""
+from calculator import Calculator
 
-def inc(x_value):
-    """ Increment Function adds one to the x_value"""
-    return x_value + 1
-
-class Calculator:
-    """ This is the Calculator class"""
-
-    result = 0
-    def get_result(self):
-        """ Get Result of Calculation"""
-        return self.result
-
-    def add_number(self, value_a):
-        """ adds number to result"""
-        self.result = self.result + value_a
-        return self.result
-    def subtract_number(self, value_a):
-        """ subtract number from result"""
-        self.result = self.result - value_a
-        return self.result
+power = "On"
+print("Welcome! Enter a math symbol(+,-,*,/), followed by a space and an integer.")
+print("Type exit to end.")
+calc = Calculator()
+while True:
+    entry = input("").split()
+    if entry[0] == "exit":
+        break
+    if len(entry) < 2:
+        print("Invalid entry. Please enter a number and symbol.")
+        continue
+    number = int(entry[1])
+    symbol = entry[0]
+    if symbol == "+":
+        calc.add_number(number)
+    elif symbol == "-":
+        calc.subtract_number(number)
+    elif symbol == "*":
+        calc.multiply_number(number)
+    elif symbol == "/":
+        calc.divide_number(number)
+    else:
+        "Print not a valid symbol"
+    print("Answer: {}".format(calc.get_result()))
+    print("Enter another number and symbol.")
