@@ -1,4 +1,6 @@
-class Calculator:
+""" Calculator class file """
+
+class Calc:
     """ This is the Calculator class"""
 
     result = 0
@@ -18,6 +20,8 @@ class Calculator:
 
     def divide_number(self, value_a):
         """ Divide number from result"""
+        if value_a == 0:
+            raise Exception("Can't divide by zero")
         self.result /= value_a
         return self.result
 

@@ -1,9 +1,10 @@
-from calculator import Calculator
+""" Main.py """
 
-power = "On"
+from calculator.calculator import Calc
+
 print("Welcome! Enter a math symbol(+,-,*,/), followed by a space and an integer.")
 print("Type exit to end.")
-calc = Calculator()
+calc = Calc()
 while True:
     entry = input("").split()
     if entry[0] == "exit":
@@ -22,6 +23,6 @@ while True:
     elif symbol == "/":
         calc.divide_number(number)
     else:
-        "Print not a valid symbol"
+        print("Print not a valid symbol")
     print("Answer: {}".format(calc.get_result()))
     print("Enter another number and symbol.")
