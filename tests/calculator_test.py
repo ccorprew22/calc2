@@ -22,6 +22,21 @@ def test_get_symbol():
     assert calc.result == 27
     calc.get_symbol("- 2".split())
     assert calc.result == 25
+    calc.get_symbol("/ 5".split())
+    assert calc.result == 5
+    calc.get_symbol("+3".split())
+    assert calc.result == 5
+    calc.get_symbol("plus 3".split())
+    assert calc.result == 5
+    calc.get_symbol("+ e".split())
+    assert calc.result == 5
+    calc.get_symbol("plus three".split())
+    assert calc.result == 5
+    calc.get_symbol("".split())
+    assert calc.result == 5
+    calc.get_symbol("exit".split())
+    assert calc.result == "Exit"
+
 
 def test_calculator_result():
     """Testing calculator result is 0"""
@@ -55,6 +70,12 @@ def test_calculator_divide():
     calc.add_number(6)
     calc.divide_number(2)
     assert calc.get_result() == 3
+
+def test_calculator_divide_zero():
+    """ Testing divide by zero returns Error """
+    calc = Calc()
+    calc.divide_number(0)
+    assert calc.get_result() == "Error"
 
 def test_calculator_get_result():
     """Testing the Get result method of the calculator"""
