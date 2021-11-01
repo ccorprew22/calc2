@@ -2,7 +2,7 @@
 
 import sys
 from calculator.calculator import Calc
-
+#from calculator_static.calculator_static import CalcStatic
 
 print("Welcome! Enter a math symbol(+,-,*,/), followed by a space and an integer.")
 print("Type exit to end.")

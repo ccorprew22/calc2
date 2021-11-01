@@ -1,5 +1,5 @@
 """ This is the increment function"""
-class Calc:
+class CalcStatic:
     """ This is the Calculator class"""
     history = []
 
