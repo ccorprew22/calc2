@@ -1,5 +1,6 @@
-"""Testing the Calculator"""
+"""Testing the Calculator Static Class"""
 #from calculator.calculator import Calc
+#pylint: disable=wrong-import-position
 import sys
 import os
 parent_dir = os.getcwd() # find the path to module a
@@ -9,7 +10,7 @@ path = os.path.dirname(parent_dir)
 sys.path.append(path)
 
 #Needed in order to get current dicectory
-#pylint: disable=wrong-import-position
+
 from calculator_static.calculator_static import CalcStatic
 #pylint: enable=wrong-import-position
 
