@@ -1,4 +1,4 @@
-"""Testing the Calculator"""
+"""Testing the Calculator Class"""
 #from calculator.calculator import Calc
 #pylint: disable=wrong-import-position
 import sys
@@ -10,75 +10,41 @@ path = os.path.dirname(parent_dir)
 sys.path.append(path)
 
 #Needed in order to get current dicectory
+
 from calculator.calculator import Calc
 #pylint: enable=wrong-import-position
 
-def test_get_symbol():
-    """ Testing get_symbol function """
-    calc = Calc()
-    calc.get_symbol("+ 9".split())
-    assert calc.result == 9
-    calc.get_symbol("* 3".split())
-    assert calc.result == 27
-    calc.get_symbol("- 2".split())
-    assert calc.result == 25
-    calc.get_symbol("/ 5".split())
-    assert calc.result == 5
-    calc.get_symbol("+3".split())
-    assert calc.result == 5
-    calc.get_symbol("plus 3".split())
-    assert calc.result == 5
-    calc.get_symbol("+ e".split())
-    assert calc.result == 5
-    calc.get_symbol("plus three".split())
-    assert calc.result == 5
-    calc.get_symbol("".split())
-    assert calc.result == 5
-    calc.get_symbol("exit".split())
-    assert calc.result == "Exit"
-
-
-def test_calculator_result():
-    """Testing calculator result is 0"""
-    calc = Calc()
-    assert calc.result == 0
-
 def test_calculator_add():
     """Testing the Add function of the calculator"""
-    #Arrange by instantiating the calc class
-    calc = Calc()
-    #Act by calling the method to be tested
-    calc.add_number(1)
-    #Assert that the results are correct
-    assert calc.result == 1
+    calc_add = Calc()
+    assert calc_add.add_number(1,2) == 3.0
 
 def test_calculator_subtract():
     """Testing the subtract method of the calculator"""
-    calc = Calc()
-    calc.subtract_number(1)
-    assert calc.get_result() == -1
+    calc_sub = Calc()
+    assert calc_sub.subtract_number(1, 2) == -1.0
 
 def test_calculator_multiply():
-    """Testing the subtract method of the calculator"""
-    calc = Calc()
-    calc.multiply_number(5)
-    assert calc.get_result() == 0
+    """ tests multiplication of two numbers"""
+    calc_mul = Calc()
+    assert calc_mul.multiply_number(1,2) == 2.0
 
-def test_calculator_divide():
-    """Testing the subtract method of the calculator"""
-    calc = Calc()
-    calc.add_number(6)
-    calc.divide_number(2)
-    assert calc.get_result() == 3
+def test_clear_history():
+    """ Test clear function """
+    calc_clear = Calc()
+    calc_clear.clear_history()
+    assert calc_clear.history == []
 
-def test_calculator_divide_zero():
-    """ Testing divide by zero returns Error """
-    calc = Calc()
-    calc.divide_number(0)
-    assert calc.get_result() == "Error"
-
-def test_calculator_get_result():
-    """Testing the Get result method of the calculator"""
-    calc = Calc()
-    calc.add_number(1)
-    assert calc.get_result() == 1
+def test_get_calculation():
+    """ Test get_calculation """
+    calc2 = Calc()
+    calc2.subtract_number(1,22)
+    calc2.add_number(4,4,4)
+    calc2.multiply_number(3,4,2)
+    print(calc2.history)
+    print(calc2.get_calculation(0))
+    print(calc2.get_calculation(1))
+    print(calc2.get_calculation(2))
+    assert calc2.get_calculation(0) == -21.0
+    assert calc2.get_calculation(1) == 12.0
+    assert calc2.get_calculation(2) == 24.0

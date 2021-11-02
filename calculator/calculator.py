@@ -1,60 +1,49 @@
-""" Calculator class file """
+""" This is the calculator function"""
+from calculator.calculations.addition import Addition
+from calculator.calculations.multiply import Multiply
+from calculator.calculations.subtract import Subtract
 
 class Calc:
     """ This is the Calculator class"""
+    history = []
 
-    result = 0
+    @staticmethod
+    def add_number(*argv):
+        """ Adds number to result"""
+        addition = Addition(argv)
+        Calc.history.append(addition)
+        result = addition.get_result()
+        return result
 
-    def get_symbol(self, entry):
-        """
-        Takes input and determines what action to take (math, invalid entry,
-        or exit)
-        """
-        if len(entry) < 2 or entry[0] not in "+-*/":
-            if len(entry) > 0 and entry[0] == "exit":
-                self.result = "Exit"
-                return
-            print("Invalid entry.")
-            return
-        try:
-            number = int(entry[1])
-            symbol = entry[0]
-        except ValueError:
-            print("Invalid entry")
-            return
-        if symbol == "+":
-            print(self.add_number(number))
-        elif symbol == "-":
-            print(self.subtract_number(number))
-        elif symbol == "*":
-            print(self.multiply_number(number))
-        else:
-            print(self.divide_number(number))
+    @staticmethod
+    def subtract_number(*argv):
+        """ Subtract number from result"""
+        subtract = Subtract(argv)
+        Calc.history.append(subtract)
+        result = subtract.get_result()
+        return result
 
+    @staticmethod
+    def multiply_number(*argv):
+        """ Multiply two numbers and store the result"""
+        multiply = Multiply(argv)
+        Calc.history.append(multiply)
+        result = multiply.get_result()
+        return result
 
-    def get_result(self):
-        """ Get Result of Calculation"""
-        return self.result
+    @staticmethod
+    def clear_history():
+        """ Clear history """
+        Calc.history.clear()
 
-    def add_number(self, value_a):
-        """ adds number to result"""
-        self.result += value_a
-        return self.result
+    @staticmethod
+    def get_calculation(num):
+        """ Get specific calculation """
+        return Calc.history[num].get_result()
 
-    def subtract_number(self, value_a):
-        """ subtract number from result"""
-        self.result -= value_a
-        return self.result
-
-    def divide_number(self, value_a):
-        """ Divide number from result"""
-        if value_a == 0:
-            self.result = "Error"
-            return self.result
-        self.result /= value_a
-        return self.result
-
-    def multiply_number(self, value_a):
-        """ Multiply number from result"""
-        self.result *= value_a
-        return self.result
+    @staticmethod
+    def get_calculation_last():
+        """ Get last calculation """
+        if len(Calc.history) > 0:
+            return Calc.history[-1]
+        return "No history"
