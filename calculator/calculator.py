@@ -32,6 +32,16 @@ class Calc:
         return result
 
     @staticmethod
+    def history_length():
+        """ Checks history length """
+        return len(Calc.history)
+
+    @staticmethod
+    def remove_history(num):
+        """ Removes specific item from history """
+        Calc.history.pop(num)
+
+    @staticmethod
     def clear_history():
         """ Clear history """
         Calc.history.clear()

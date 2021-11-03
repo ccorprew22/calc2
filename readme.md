@@ -1,5 +1,5 @@
 # Calculator Project
-[![Build Status](https://app.travis-ci.com/ccorprew22/calc2.svg?branch=main)](https://app.travis-ci.com/ccorprew22/calc2)
+[![Build Status](https://app.travis-ci.com/ccorprew22/calc2.svg?branch=static)](https://app.travis-ci.com/ccorprew22/calc2)
 
 To run program, enter `python3 main.py` NOT `python main.py`.
 
