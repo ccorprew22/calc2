@@ -23,6 +23,7 @@ class Calc:
                 lst_numbers.append(int(num))
             else:
                 math = "Not a number"
+                print(math)
                 return math
         tup_numbers = tuple(lst_numbers)
 
@@ -36,6 +37,7 @@ class Calc:
             math = Calc.divide_number(*tup_numbers)
         else:
             math = "Invalid symbol"
+            print(math)
         return math
 
     @staticmethod
@@ -53,6 +55,7 @@ class Calc:
         subtract = Subtract(argv)
         Calc.history.append(subtract)
         result = subtract.get_result()
+        print("Answer: " + str(result))
         return result
 
     @staticmethod
@@ -61,6 +64,7 @@ class Calc:
         multiply = Multiply(argv)
         Calc.history.append(multiply)
         result = multiply.get_result()
+        print("Answer: " + str(result))
         return result
 
     @staticmethod
@@ -69,6 +73,7 @@ class Calc:
         division = Division(argv)
         Calc.history.append(division)
         result = division.get_result()
+        print("Answer: " + str(result))
         return result
 
     @staticmethod
