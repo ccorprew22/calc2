@@ -41,9 +41,15 @@ def test_remove_history():
     print(Calc.history)
     assert Calc.history == lst
 
+def test_add_calculation_to_history():
+    """ Test add calculation to history """
+    repeat = Calc.history[0]
+    Calc.add_calculation_to_history(repeat)
+    assert Calc.history[-1] == repeat
+
 def test_history_length():
     """ Tests history_length """
-    assert Calc.history_length() == 4
+    assert Calc.history_length() == 5
 
 def test_clear_history():
     """ Test clear function """

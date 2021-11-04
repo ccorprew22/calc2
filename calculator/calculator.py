@@ -11,8 +11,7 @@ class Calc:
     @staticmethod
     def get_symbol(symbol, numbers):
         """
-        Takes input and determines what action to take (math, invalid entry,
-        or exit)
+        Takes input and determines what action to take
         """
 
         lst = numbers.split()
@@ -41,10 +40,16 @@ class Calc:
         return math
 
     @staticmethod
+    def add_calculation_to_history(calculation):
+        """ Add calculation to history """
+        Calc.history.append(calculation)
+        return True
+
+    @staticmethod
     def add_number(*argv):
         """ Adds number meothod"""
         addition = Addition(argv)
-        Calc.history.append(addition)
+        Calc.add_calculation_to_history(addition)
         result = addition.get_result()
         print("Answer: " + str(result))
         return result
@@ -53,7 +58,7 @@ class Calc:
     def subtract_number(*argv):
         """ Subtract number method"""
         subtract = Subtract(argv)
-        Calc.history.append(subtract)
+        Calc.add_calculation_to_history(subtract)
         result = subtract.get_result()
         print("Answer: " + str(result))
         return result
@@ -62,7 +67,7 @@ class Calc:
     def multiply_number(*argv):
         """ Multiply numbers method"""
         multiply = Multiply(argv)
-        Calc.history.append(multiply)
+        Calc.add_calculation_to_history(multiply)
         result = multiply.get_result()
         print("Answer: " + str(result))
         return result
@@ -71,7 +76,7 @@ class Calc:
     def divide_number(*argv):
         """ Divide numbers method"""
         division = Division(argv)
-        Calc.history.append(division)
+        Calc.add_calculation_to_history(division)
         result = division.get_result()
         print("Answer: " + str(result))
         return result
