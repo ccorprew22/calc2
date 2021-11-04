@@ -12,11 +12,12 @@ sys.path.append(path)
 #Needed in order to get current dicectory
 
 from calculator.calculator import Calc
+#from calculator.calculations.division import Division
 #pylint: enable=wrong-import-position
 
 def test_calculator_add():
     """Testing the Add function of the calculator"""
-    assert Calc.add_number(1,2) == 3.0
+    assert Calc.add_number(*(1,2)) == 3.0
 
 def test_calculator_subtract():
     """Testing the subtract method of the calculator"""
@@ -25,6 +26,11 @@ def test_calculator_subtract():
 def test_calculator_multiply():
     """ tests multiplication of two numbers"""
     assert Calc.multiply_number(1,2) == 2.0
+
+def test_calculator_divide():
+    """ tests multiplication of two numbers"""
+    assert Calc.divide_number(8,4,2) == 1.0
+    assert Calc.divide_number(4,0) == "Error"
 
 def test_remove_history():
     """ Tests remove history """
@@ -37,7 +43,7 @@ def test_remove_history():
 
 def test_history_length():
     """ Tests history_length """
-    assert Calc.history_length() == 2
+    assert Calc.history_length() == 4
 
 def test_clear_history():
     """ Test clear function """
@@ -59,7 +65,17 @@ def test_get_calculation():
 
 def test_calculation_last():
     """ Test calculation last with populated history and empty history"""
-    last = Calc.history[-1]
-    assert Calc.get_calculation_last() == last
+    #last = Calc.history[-1]
+    assert Calc.get_calculation_last() == 24.0
     Calc.clear_history()
     assert Calc.get_calculation_last() == "No history"
+
+def test_get_symbol():
+    """ Test get_symbol method """
+    calc = Calc()
+    assert calc.get_symbol("+", "3 3 3") == 9.0
+    assert calc.get_symbol("*", "3 3 3") == 27.0
+    assert calc.get_symbol("-", "9 4 1") == 4.0
+    assert calc.get_symbol("/", "10 2") == 5.0
+    assert calc.get_symbol("+", "3 b") == "Not a number"
+    assert calc.get_symbol("@", "3 2") == "Invalid symbol"
