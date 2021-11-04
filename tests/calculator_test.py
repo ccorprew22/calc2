@@ -16,19 +16,19 @@ from calculator.calculator import Calc
 #pylint: enable=wrong-import-position
 
 def test_calculator_add():
-    """Testing the Add function of the calculator"""
+    """ Testing the Add function of the calculator"""
     assert Calc.add_number(*(1,2)) == 3.0
 
 def test_calculator_subtract():
-    """Testing the subtract method of the calculator"""
+    """ Testing the subtract method of the calculator"""
     assert Calc.subtract_number(1, 2) == -1.0
 
 def test_calculator_multiply():
-    """ tests multiplication of two numbers"""
+    """ Tests multiplication of two numbers"""
     assert Calc.multiply_number(1,2) == 2.0
 
 def test_calculator_divide():
-    """ tests multiplication of two numbers"""
+    """ Tests multiplication of two numbers"""
     assert Calc.divide_number(8,4,2) == 1.0
     assert Calc.divide_number(4,0) == "Error"
 
