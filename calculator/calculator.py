@@ -90,11 +90,13 @@ class Calc:
     def remove_history(num):
         """ Removes specific item from history """
         Calc.history.pop(num)
+        return True
 
     @staticmethod
     def clear_history():
         """ Clear history """
         Calc.history.clear()
+        return True
 
     @staticmethod
     def get_calculation(num):
