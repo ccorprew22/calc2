@@ -3,6 +3,7 @@
 #pylint: disable=wrong-import-position
 import sys
 import os
+import pytest
 parent_dir = os.getcwd() # find the path to module a
 # Then go up one level to the common parent directory
 #print(parent_dir)
@@ -14,6 +15,14 @@ sys.path.append(path)
 from calculator.calculator import Calc
 #from calculator.calculations.division import Division
 #pylint: enable=wrong-import-position
+#pylint: disable=redefined-outer-name
+#pylint: disable=unused-argument
+@pytest.fixture ##LOOK THIS UP
+def clear_history_fixture():
+    """ Will run and clear each time a test is passed """
+
+    Calc.clear_history()
+    return True
 
 def test_calculator_add():
     """ Testing the Add function of the calculator"""
@@ -32,8 +41,13 @@ def test_calculator_divide():
     assert Calc.divide_number(8,4,2) == 1.0
     assert Calc.divide_number(4,0) == "Error"
 
-def test_remove_history():
+#pylint: disable=redefined-outer-name
+def test_remove_history(clear_history_fixture):
+
     """ Tests remove history """
+    Calc.add_number(*(1,2))
+    Calc.subtract_number(1, 2)
+    Calc.multiply_number(1,2)
     lst = Calc.history[:]
     lst.pop(0)
     print(lst)
@@ -47,9 +61,16 @@ def test_add_calculation_to_history():
     Calc.add_calculation_to_history(repeat)
     assert Calc.history[-1] == repeat
 
-def test_history_length():
+
+def test_history_length(clear_history_fixture):
     """ Tests history_length """
-    assert Calc.history_length() == 5
+    Calc.multiply_number(1,2)
+    Calc.multiply_number(1,2)
+    Calc.remove_history(0)
+    Calc.multiply_number(1,2)
+    Calc.remove_history(0)
+    Calc.multiply_number(1,2)
+    assert Calc.history_length() == 2
 
 def test_clear_history():
     """ Test clear function """
@@ -71,7 +92,8 @@ def test_get_calculation():
 
 def test_calculation_last():
     """ Test calculation last with populated history and empty history"""
-    #last = Calc.history[-1]
+    Calc.add_number(4,4,4)
+    Calc.multiply_number(3,4,2)
     assert Calc.get_calculation_last() == 24.0
     Calc.clear_history()
     assert Calc.get_calculation_last() == "No history"
