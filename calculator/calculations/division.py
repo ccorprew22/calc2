@@ -7,9 +7,8 @@ class Division(Calculation):
 
     def get_result(self):
         """ Result """
-        tup_values = self.values[0]
-        div_values = tup_values[0]
-        for arg in tup_values[1:]:
+        div_values = self.values[0]
+        for arg in self.values[1:]:
             try:
                 div_values = float(div_values) / arg
             except ZeroDivisionError:
