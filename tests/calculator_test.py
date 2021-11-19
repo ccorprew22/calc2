@@ -4,6 +4,7 @@
 import sys
 import os
 import pytest
+import pandas as pd
 parent_dir = os.getcwd() # find the path to module a
 # Then go up one level to the common parent directory
 #print(parent_dir)
@@ -11,6 +12,7 @@ path = os.path.dirname(parent_dir)
 sys.path.append(path)
 
 #Needed in order to get current dicectory
+test_data = os.path.dirname(os.path.abspath(__file__)) + "/test_data/"
 
 from calculator.calculator import Calc
 from calculator.history.history import History
@@ -18,6 +20,7 @@ from calculator.history.history import History
 #pylint: enable=wrong-import-position
 #pylint: disable=redefined-outer-name
 #pylint: disable=unused-argument
+
 @pytest.fixture
 def clear_history_fixture():
     """ Will run and clear each time a test is passed """
@@ -27,23 +30,31 @@ def clear_history_fixture():
 
 def test_calculator_add():
     """ Testing the Add function of the calculator"""
-    Calc.add_number(1,2)
-    assert History.get_calculation_last() == 3.0
+    addition = pd.read_csv(test_data + "addition_data.csv")
+    for i in range(len(addition)):
+        Calc.add_number(addition.loc[i]["Value1"], addition.loc[i]["Value2"])
+        assert History.get_calculation_last() == addition.loc[i]["Result"]
 
 def test_calculator_subtract():
     """ Testing the subtract method of the calculator"""
-    Calc.subtract_number(1, 2)
-    assert History.get_calculation_last() == -1.0
+    subtraction = pd.read_csv(test_data + "subtraction_data.csv")
+    for i in range(len(subtraction)):
+        Calc.subtract_number(subtraction.loc[i]["Value1"], subtraction.loc[i]["Value2"])
+        assert History.get_calculation_last() == subtraction.loc[i]["Result"]
 
 def test_calculator_multiply():
     """ Tests multiplication of two numbers"""
-    Calc.multiply_number(1,2)
-    assert History.get_calculation_last() == 2.0
+    multiply = pd.read_csv(test_data + "multiply_data.csv")
+    for i in range(len(multiply)):
+        Calc.multiply_number(multiply.loc[i]["Value1"], multiply.loc[i]["Value2"])
+        assert History.get_calculation_last() == multiply.loc[i]["Result"]
 
 def test_calculator_divide():
     """ Tests multiplication of two numbers"""
-    Calc.divide_number(8,4,2)
-    assert History.get_calculation_last() == 1.0
+    divide = pd.read_csv(test_data + "division_data.csv")
+    for i in range(len(divide)):
+        Calc.divide_number(divide.loc[i]["Value1"], divide.loc[i]["Value2"])
+        assert round(History.get_calculation_last(), 5) == round(divide.loc[i]["Result"], 5)
     Calc.divide_number(4,0)
     assert History.get_calculation_last() == "Error"
 

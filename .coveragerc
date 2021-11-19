@@ -9,6 +9,7 @@ omit =
     # omit this single file
     utils/tirefire.py
     setup.py
+    test.py
 
 [coverage:report]
 skip_empty = true
