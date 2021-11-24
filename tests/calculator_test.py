@@ -32,7 +32,7 @@ def test_calculator_add():
     """ Testing the Add function of the calculator"""
     addition = pd.read_csv(test_data + "addition_data.csv")
     for i in range(len(addition)):
-        Calc.add_number(addition.loc[i]["Value1"], addition.loc[i]["Value2"])
+        Calc.addition_number(addition.loc[i]["Value1"], addition.loc[i]["Value2"])
         assert History.get_calculation_last() == addition.loc[i]["Result"]
 
 def test_calculator_subtract():
@@ -62,7 +62,7 @@ def test_calculator_divide():
 def test_remove_history(clear_history_fixture):
 
     """ Tests remove history """
-    Calc.add_number(1,2)
+    Calc.addition_number(1,2)
     Calc.subtract_number(1, 2)
     Calc.multiply_number(1,2)
     lst = History.history[:]
@@ -97,7 +97,7 @@ def test_clear_history():
 def test_get_calculation():
     """ Test get_calculation """
     Calc.subtract_number(1,22)
-    Calc.add_number(4,4,4)
+    Calc.addition_number(4,4,4)
     Calc.multiply_number(3,4,2)
     print(History.history)
     print(History.get_calculation(0))
@@ -109,6 +109,6 @@ def test_get_calculation():
 
 def test_calculation_last():
     """ Test calculation last with populated history and empty history"""
-    Calc.add_number(4,4,4)
+    Calc.addition_number(4,4,4)
     Calc.multiply_number(3,4,2)
     assert History.get_calculation_last() == 24.0

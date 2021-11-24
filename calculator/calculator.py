@@ -9,7 +9,7 @@ class Calc:
     """ This is the Calculator class"""
 
     @staticmethod
-    def add_number(*argv):
+    def addition_number(*argv):
         """ Adds number meothod"""
         addition = Addition(argv)
         History.add_calculation_to_history(addition)
