@@ -10,13 +10,20 @@ RECORD = 0
 def main_calculator(name_file, operation):
     """ Makes log for calculations """
     global RECORD
-    with open("log_file/log.txt", "a+") as _f_:
-        result = History.get_calculation(RECORD)
-        now = int(time.time())
-        #print(now)
-        log = "{}.\nTime:{}\nName of File: {}\nOperation: {}\nResult: {}\n\n".format(str(RECORD+1),
-                                            now, name_file, operation, result)
-        _f_.write(log)
+    result = History.get_calculation(RECORD)
+    now = int(time.time())
+    if result == "Error":
+        with open("log_file/err_log.txt", "a+") as _f_:
+            log = "{}.\nTime:{}\nFile Name: {}\nError: Divide by Zero\n\n".format(str(RECORD+1),
+                                                now, name_file)
+            _f_.write(log)
+    else:
+        with open("log_file/log.txt", "a+") as _f_:
+            result = History.get_calculation(RECORD)
+            #print(now)
+            log="{}.\nTime:{}\nFile Name: {}\nOperation: {}\nResult: {}\n\n".format(str(RECORD+1),
+                                                now, name_file, operation, result)
+            _f_.write(log)
     RECORD += 1
 
 if not os.path.exists('log_file'):
