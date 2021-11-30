@@ -32,39 +32,39 @@ def test_calculator_add():
     """ Testing the Add function of the calculator"""
     addition = pd.read_csv(test_data + "addition_data.csv")
     for i in range(len(addition)):
-        Calc.addition_number(addition.loc[i]["Value1"], addition.loc[i]["Value2"])
+        Calc.addition(addition.loc[i]["Value1"], addition.loc[i]["Value2"])
         assert History.get_calculation_last() == addition.loc[i]["Result"]
 
 def test_calculator_subtract():
     """ Testing the subtract method of the calculator"""
     subtraction = pd.read_csv(test_data + "subtraction_data.csv")
     for i in range(len(subtraction)):
-        Calc.subtract_number(subtraction.loc[i]["Value1"], subtraction.loc[i]["Value2"])
+        Calc.subtraction(subtraction.loc[i]["Value1"], subtraction.loc[i]["Value2"])
         assert History.get_calculation_last() == subtraction.loc[i]["Result"]
 
 def test_calculator_multiply():
     """ Tests multiplication of two numbers"""
     multiply = pd.read_csv(test_data + "multiply_data.csv")
     for i in range(len(multiply)):
-        Calc.multiply_number(multiply.loc[i]["Value1"], multiply.loc[i]["Value2"])
+        Calc.multiplication(multiply.loc[i]["Value1"], multiply.loc[i]["Value2"])
         assert History.get_calculation_last() == multiply.loc[i]["Result"]
 
 def test_calculator_divide():
     """ Tests multiplication of two numbers"""
     divide = pd.read_csv(test_data + "division_data.csv")
     for i in range(len(divide)):
-        Calc.divide_number(divide.loc[i]["Value1"], divide.loc[i]["Value2"])
+        Calc.division(divide.loc[i]["Value1"], divide.loc[i]["Value2"])
         assert round(History.get_calculation_last(), 5) == round(divide.loc[i]["Result"], 5)
-    Calc.divide_number(4,0)
+    Calc.division(4,0)
     assert History.get_calculation_last() == "Error"
 
 #pylint: disable=redefined-outer-name
 def test_remove_history(clear_history_fixture):
 
     """ Tests remove history """
-    Calc.addition_number(1,2)
-    Calc.subtract_number(1, 2)
-    Calc.multiply_number(1,2)
+    Calc.addition(1,2)
+    Calc.subtraction(1, 2)
+    Calc.multiplication(1,2)
     lst = History.history[:]
     lst.pop(0)
     print(lst)
@@ -81,12 +81,12 @@ def test_add_calculation_to_history():
 
 def test_history_length(clear_history_fixture):
     """ Tests history_length """
-    Calc.multiply_number(1,2)
-    Calc.multiply_number(1,2)
+    Calc.multiplication(1,2)
+    Calc.multiplication(1,2)
     History.remove_history(0)
-    Calc.multiply_number(1,2)
+    Calc.multiplication(1,2)
     History.remove_history(0)
-    Calc.multiply_number(1,2)
+    Calc.multiplication(1,2)
     assert History.history_length() == 2
 
 def test_clear_history():
@@ -96,9 +96,9 @@ def test_clear_history():
 
 def test_get_calculation():
     """ Test get_calculation """
-    Calc.subtract_number(1,22)
-    Calc.addition_number(4,4,4)
-    Calc.multiply_number(3,4,2)
+    Calc.subtraction(1,22)
+    Calc.addition(4,4,4)
+    Calc.multiplication(3,4,2)
     print(History.history)
     print(History.get_calculation(0))
     print(History.get_calculation(1))
@@ -109,6 +109,6 @@ def test_get_calculation():
 
 def test_calculation_last():
     """ Test calculation last with populated history and empty history"""
-    Calc.addition_number(4,4,4)
-    Calc.multiply_number(3,4,2)
+    Calc.addition(4,4,4)
+    Calc.multiplication(3,4,2)
     assert History.get_calculation_last() == 24.0

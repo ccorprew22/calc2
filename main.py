@@ -36,18 +36,18 @@ multiply = pd.read_csv("math_data/mul.csv")
 
 data_path = os.path.dirname(os.path.abspath(__file__))
 for i in range(len(addition)):
-    Calc.addition_number(addition.loc[i]["Value1"], addition.loc[i]["Value2"])
+    Calc.addition(addition.loc[i]["Value1"], addition.loc[i]["Value2"])
     main_calculator("add.csv", "Addition")
 os.rename(data_path+"/math_data/add.csv", data_path+"/finished_data/add.csv")
 for i in range(len(subtraction)):
-    Calc.subtract_number(subtraction.loc[i]["Value1"], subtraction.loc[i]["Value2"])
+    Calc.subtraction(subtraction.loc[i]["Value1"], subtraction.loc[i]["Value2"])
     main_calculator("sub.csv", "Subtraction")
 os.rename(data_path+"/math_data/sub.csv", data_path+"/finished_data/sub.csv")
 for i in range(len(multiply)):
-    Calc.multiply_number(multiply.loc[i]["Value1"], multiply.loc[i]["Value2"])
+    Calc.multiplication(multiply.loc[i]["Value1"], multiply.loc[i]["Value2"])
     main_calculator("mul.csv", "Multiply")
 os.rename(data_path+"/math_data/mul.csv", data_path+"/finished_data/mul.csv")
 for i in range(len(division)):
-    Calc.divide_number(division.loc[i]["Value1"], division.loc[i]["Value2"])
+    Calc.division(division.loc[i]["Value1"], division.loc[i]["Value2"])
     main_calculator("div.csv", "Division")
 os.rename(data_path+"/math_data/div.csv", data_path+"/finished_data/div.csv")
