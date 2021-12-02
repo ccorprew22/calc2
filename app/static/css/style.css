@@ -1,3 +1,10 @@
 body {
 font-size: 200%;
 }
+
+.logo-size{
+  width: 15%;
+  height: 30%;
+  margin-right: 0px;
+  padding: 0px;
+}
