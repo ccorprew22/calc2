@@ -1,6 +1,14 @@
 """A simple flask web app"""
+import sys
+import os
 from flask import Flask, request
 from flask import render_template
+
+parent_dir = os.getcwd()
+path = os.path.dirname(parent_dir)
+sys.path.append(parent_dir)
+
+#pylint: disable=wrong-import-position
 from calculator.calculator import Calc
 from calculator.history.history import History
 app = Flask(__name__)
