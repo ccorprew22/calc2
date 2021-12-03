@@ -8,5 +8,5 @@ class Subtract(Calculation):
         """ Result """
         diff_values = self.values[0]
         for arg in self.values[1:]:
-            diff_values = diff_values - float(arg)
+            diff_values = float(diff_values) - float(arg)
         return diff_values

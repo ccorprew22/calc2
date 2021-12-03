@@ -3,8 +3,20 @@ font-size: 200%;
 }
 
 .logo-size{
-  width: 15%;
+  width: 30%;
   height: 30%;
   margin-right: 0px;
   padding: 0px;
+}
+
+.card-size{
+  width: 30%;
+}
+
+.result{
+  font-size: 30px;
+}
+
+.brand-size{
+  width: 15%
 }

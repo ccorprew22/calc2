@@ -1,37 +1,56 @@
 #pylint: disable=invalid-name
 """ CSV Reader Class """
 import pandas as pd
+import os
 
 class CSVReader:
     """ Takes user input and puts it into CSV """
-    def __init__(self, name):
-        self.name = name
-        self.df = CSVReader.create_df(name)
-        self.record = 1
+    #record = 1
+    # def __init__(self, name):
+    #     self.name = name
+    #     self.df = CSVReader.create_df(name)
+    #     self.record = 1
 
-    def insert_row(self, operation, value1, value2, result):
+    def insert_row(operation, value1, value2, result):
         """ Inserts new row in csv file """
-        new_row_df = pd.DataFrame({'Record': [self.record],
+        new_row_df = pd.DataFrame({
                        'Operation': [operation],
                        'Value1': [value1],
                        'Value2': [value2],
                        'Result': [result]})
-        new_row_df.to_csv('{}_results.csv'.format(self.name), mode='a', index=False, header=False)
-        self.record += 1
-        new_df = pd.read_csv('{}_results.csv'.format(self.name))
-        self.df = new_df
+        script_dir = os.path.dirname(os.path.abspath(__file__)) #directory name of path to file
 
-    @staticmethod
-    def create_df(name):
-        """ Creates new table for user """
-        df = pd.DataFrame({'Record': [],
-                       'Operation': [],
-                       'Value1': [],
-                       'Value2': [],
-                       'Result': []})
-        df.to_csv('{}_results.csv'.format(name), index=False)
-        return df
+        with open(script_dir+'/results.csv', 'a') as f:
+            if f.tell() == 0:
+                new_row_df.index += 1
+                new_row_df.to_csv(f, header=True)
+            else:
+                curr = pd.read_csv(script_dir+'/results.csv')
+                new_row_df.index += len(curr.index) + 1
+                new_row_df.to_csv(f, mode='a', header=False)
 
-    def show_df(self):
+    # @staticmethod
+    # def create_df(name):
+    #     """ Creates new table for user """
+    #     df = pd.DataFrame({'Record': [],
+    #                    'Operation': [],
+    #                    'Value1': [],
+    #                    'Value2': [],
+    #                    'Result': []})
+    #     df.to_csv('{}_results.csv', index=False)
+    #     return df
+
+    def show_df():
         """ Shows df """
-        return self.df
+        return pd.read_csv(os.path.dirname(os.path.abspath(__file__)) + "/results.csv")
+
+    def clear_csv():
+        """ Clear csv """
+        f = open(os.path.dirname(os.path.abspath(__file__))+"/results.csv", "w+")
+        f.close()
+        return True
+
+    def csv_to_json():
+        """ Converts csv to dictionary """
+
+        return True

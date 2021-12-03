@@ -3,6 +3,7 @@
 #pylint: disable=wrong-import-position
 import sys
 import os
+import pytest
 import pandas as pd
 from pandas._testing import assert_frame_equal
 
@@ -22,11 +23,16 @@ from calculator.CSV_Reader.CSVReader import CSVReader
 #pylint: disable=redefined-outer-name
 #pylint: disable=unused-argument
 
-def test_user_creation():
+@pytest.fixture
+def clear_csv_fixture():
+    """ Will run and clear each time a test is passed """
+    CSVReader.clear_csv()
+    return True
+
+def test_user_creation(clear_csv_fixture):
     """ Tests if csv file is accurately created """
     test_results = pd.read_csv(test_data + "test_results.csv")
-    user = CSVReader("Chris")
-    user.insert_row("Add", 1, 2, 3)
-    user.insert_row("Add", 2, 2, 4)
-    user.insert_row("Add", 5, 2, 7)
-    assert_frame_equal(user.show_df(), test_results)
+    CSVReader.insert_row("Add", 1, 2, 3)
+    CSVReader.insert_row("Add", 2, 2, 4)
+    CSVReader.insert_row("Add", 5, 2, 7)
+    assert_frame_equal(CSVReader.show_df(), test_results)
