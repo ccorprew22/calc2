@@ -11,6 +11,7 @@ class CSVReader:
     #     self.df = CSVReader.create_df(name)
     #     self.record = 1
 
+    @staticmethod
     def insert_row(operation, value1, value2, result):
         """ Inserts new row in csv file """
         new_row_df = pd.DataFrame({
@@ -40,17 +41,23 @@ class CSVReader:
     #     df.to_csv('{}_results.csv', index=False)
     #     return df
 
+    @staticmethod
     def show_df():
         """ Shows df """
         return pd.read_csv(os.path.dirname(os.path.abspath(__file__)) + "/results.csv")
 
+    @staticmethod
     def clear_csv():
         """ Clear csv """
         f = open(os.path.dirname(os.path.abspath(__file__))+"/results.csv", "w+")
         f.close()
         return True
 
-    def csv_to_json():
+    @staticmethod
+    def csv_to_json(file):
         """ Converts csv to dictionary """
+        csv = pd.read_csv(os.path.dirname(os.path.abspath(__file__)) + "/results.csv")
+        dict = {}
+        #for row in csv:
 
-        return True
+        return dict

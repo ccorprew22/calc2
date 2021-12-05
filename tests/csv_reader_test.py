@@ -16,7 +16,7 @@ sys.path.append(path)
 #Needed in order to get current dicectory
 test_data = os.path.dirname(os.path.abspath(__file__)) + "/test_data/"
 
-from calculator.CSV_Reader.CSVReader import CSVReader
+from calculator.csv_reader.CSVReader import CSVReader
 
 #from calculator.calculations.division import Division
 #pylint: enable=wrong-import-position

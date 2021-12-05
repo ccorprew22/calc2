@@ -1,54 +1,35 @@
 """A simple flask web app"""
 import sys
 import os
-from flask import Flask, request
-from flask import render_template
+from flask import Flask, request, render_template
 
 parent_dir = os.getcwd()
 path = os.path.dirname(parent_dir)
 sys.path.append(parent_dir)
 
 #pylint: disable=wrong-import-position
-from calculator.calculator import Calc
-from calculator.history.history import History
-from calculator.CSV_Reader.CSVReader import CSVReader
+
+from app.controllers.index_controller import IndexController
+from app.controllers.calculator_controller import CalculatorController
+
 app = Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 @app.route("/")
 def index():
     """index  Route Response"""
-    return render_template('index.html')
+    return IndexController.get()
 
 @app.route("/basicform", methods=['GET', 'POST'])
 def basicform():
-    """Post Request Handling"""
+    """Basic Form Route"""
     if request.method == 'POST':
-        #get the values out of the form
-        value1 = request.form['value1']
-        value2 = request.form['value2']
-        operation = request.form['operation']
-        symbol = None
-
-        if operation == "addition":
-            symbol = '+'
-        elif operation == "subtraction":
-            symbol = '-'
-        elif operation == "multiplication":
-            symbol = '*'
-        else:
-            symbol = '÷'
-        getattr(Calc, operation)(value1, value2)
-        result = str(History.get_calculation_last())
-
-        CSVReader.insert_row(operation.capitalize(), value1, value2, result)
-
-        return render_template('basicform.html',value1=value1,value2=value2,
-                        operation=operation.capitalize(),result=result,symbol=symbol)
-    # Displays the form because if it isn't a post it is a get request
-    return render_template('basicform.html')
+        return CalculatorController.post()
+    return CalculatorController.get()
 
 @app.route("/results_table")
 def results_table():
+    """ Results Table Route """
     # Read csv into dictionary
-    data = {}
+    #data = {}
     return render_template('results_table.html')
