@@ -10,7 +10,7 @@ class Calc:
 
     @staticmethod
     def addition(*argv):
-        """ Adds number meothod"""
+        """ Adds number method"""
         addition = Addition(argv)
         History.add_calculation_to_history(addition)
         return True

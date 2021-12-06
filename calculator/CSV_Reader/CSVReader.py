@@ -17,7 +17,7 @@ class CSVReader:
         script_dir = os.path.dirname(os.path.abspath(__file__)) #directory name of path to file
 
         with open(script_dir+'/results.csv', 'a') as f:
-            if f.tell() == 0:
+            if f.tell() <= 31:
                 new_row_df.index += 1
                 new_row_df.to_csv(f, header=True)
             else:
