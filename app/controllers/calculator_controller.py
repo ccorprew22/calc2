@@ -19,14 +19,14 @@ class CalculatorController(ControllerBase):
 
         if len(value1) == 0 or len(value2) == 0:
             flash("Enter number values into text boxes")
-            return render_template('basicform.html',value1=value1,value2=value2)
+            return render_template('calculator.html',value1=value1,value2=value2)
 
         try:
             value1 = float(value1)
             value2 = float(value2)
         except ValueError:
             flash("Must enter number!!!")
-            return render_template('basicform.html',value1=value1,value2=value2)
+            return render_template('calculator.html',value1=value1,value2=value2)
 
         if operation == "addition":
             symbol = '+'
@@ -41,10 +41,10 @@ class CalculatorController(ControllerBase):
 
         CSVReader.insert_row(operation.capitalize(), value1, value2, result)
 
-        return render_template('basicform.html',value1=value1,value2=value2,
+        return render_template('calculator.html',value1=value1,value2=value2,
                         operation=operation.capitalize(),result=result,symbol=symbol)
 
     @staticmethod
     def get():
         """ Calculator Controller get method """
-        return render_template('basicform.html')
+        return render_template('calculator.html')

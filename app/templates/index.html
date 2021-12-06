@@ -7,9 +7,10 @@
     </style>
 {% endblock %}
 {% block content %}
-    <h1>Index</h1>
+  <div class="card card-size mx-auto text-center">
+    <h1>Calculator<img class="logo-size d-inline-block align-middle" src="{{ url_for('static', filename='images/calculator.jpg') }}"></h1>
     <p class="important">
-      Welcome to my calculator. Click <a href="/basicform">here</a> to do some math!
+      Welcome to my calculator. Click <a href="/calculator">here</a> to do some math!
     </p>
-
+  </div>
 {% endblock %}

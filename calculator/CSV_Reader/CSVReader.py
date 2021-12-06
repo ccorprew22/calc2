@@ -1,15 +1,10 @@
 #pylint: disable=invalid-name
 """ CSV Reader Class """
-import pandas as pd
 import os
+import pandas as pd
 
 class CSVReader:
     """ Takes user input and puts it into CSV """
-    #record = 1
-    # def __init__(self, name):
-    #     self.name = name
-    #     self.df = CSVReader.create_df(name)
-    #     self.record = 1
 
     @staticmethod
     def insert_row(operation, value1, value2, result):
@@ -30,17 +25,6 @@ class CSVReader:
                 new_row_df.index += len(curr.index) + 1
                 new_row_df.to_csv(f, mode='a', header=False)
 
-    # @staticmethod
-    # def create_df(name):
-    #     """ Creates new table for user """
-    #     df = pd.DataFrame({'Record': [],
-    #                    'Operation': [],
-    #                    'Value1': [],
-    #                    'Value2': [],
-    #                    'Result': []})
-    #     df.to_csv('{}_results.csv', index=False)
-    #     return df
-
     @staticmethod
     def show_df():
         """ Shows df """
@@ -49,15 +33,28 @@ class CSVReader:
     @staticmethod
     def clear_csv():
         """ Clear csv """
-        f = open(os.path.dirname(os.path.abspath(__file__))+"/results.csv", "w+")
-        f.close()
+        with open(os.path.dirname(os.path.abspath(__file__))+"/results.csv", "w+") as f:
+            f.write(",Operation,Value1,Value2,Result\n")
+            f.close()
         return True
 
     @staticmethod
-    def csv_to_json(file):
+    def csv_to_json():
         """ Converts csv to dictionary """
         csv = pd.read_csv(os.path.dirname(os.path.abspath(__file__)) + "/results.csv")
-        dict = {}
-        #for row in csv:
+        d = {"record" : [],
+                "operation": [],
+                "value1": [],
+                "value2": [],
+                "result": []
+                }
+        for i in range(len(csv)):
+            d["record"].append(csv.iloc[i]["Unnamed: 0"])
+            d["operation"].append(csv.iloc[i]["Operation"])
+            d["value1"].append(csv.iloc[i]["Value1"])
+            d["value2"].append(csv.iloc[i]["Value2"])
+            d["result"].append(csv.iloc[i]["Result"])
 
-        return dict
+        return d
+
+CSVReader.clear_csv()

@@ -1,4 +1,4 @@
 ,Operation,Value1,Value2,Result
-1,Add,1,2,3
-2,Add,2,2,4
-3,Add,5,2,7
+1,Addition,2.0,2.0,4.0
+2,Addition,2.0,8.0,10.0
+3,Multiplication,23.0,8.0,184.0
