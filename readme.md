@@ -6,6 +6,3 @@
 
 + Flash Example
 ![Flash 1](readme_images/flash1.png)
-
-+ Table Example
-![Table](readme_images/Table_results.png)
