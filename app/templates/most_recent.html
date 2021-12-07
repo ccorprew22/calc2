@@ -5,12 +5,15 @@
     {% if last|length == 0 %}
       <p class="most-recent">No values available yet.</p>
     {% else %}
-    <ul>
-      <li>Value 1: {{ last.value1 }}</li>
-      <li>Value 2: {{ last.value2 }}</li>
-      <li>Operation: {{ last.operation }}</li>
-      <li>Result: {{ last.result }}</li>
-    </ul>
+    <div class="l">
+      <ul>
+        <li>Value 1: {{ last.value1 }}</li>
+        <li>Value 2: {{ last.value2 }}</li>
+        <li>Operation: {{ last.operation }}</li>
+        <li>Result: {{ last.result }}</li>
+      </ul>
+    </div>
+
     {% endif %}
   </div>
 {% endblock %}
