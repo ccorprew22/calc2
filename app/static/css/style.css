@@ -2,9 +2,29 @@ body {
 font-size: 200%;
 }
 
+.result-starter{
+  font-size: 75%;
+}
+
+.most-recent{
+  font-size: 90%;
+}
+
+.header-padding{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .logo-size{
   width: 30%;
   height: 30%;
+  margin-right: 0px;
+  padding: 0px;
+}
+
+.index-logo{
+  width: 20%;
+  height: 100%;
   margin-right: 0px;
   padding: 0px;
 }

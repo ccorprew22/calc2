@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="card card-size mx-auto text-center">
+    <h1>Most Recent Result</h1>
+    {% if last|length == 0 %}
+      <p class="most-recent">No values available yet.</p>
+    {% else %}
+    <ul>
+      <li>Value 1: {{ last.value1 }}</li>
+      <li>Value 2: {{ last.value2 }}</li>
+      <li>Operation: {{ last.operation }}</li>
+      <li>Result: {{ last.result }}</li>
+    </ul>
+    {% endif %}
+  </div>
+{% endblock %}

@@ -12,6 +12,7 @@ sys.path.append(parent_dir)
 from app.controllers.index_controller import IndexController
 from app.controllers.calculator_controller import CalculatorController
 from app.controllers.results_table_controller import ResultsTableController
+from app.controllers.most_recent_controller import MostRecentController
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
@@ -32,3 +33,8 @@ def basicform():
 def results_table():
     """ Results Table Route """
     return ResultsTableController.get()
+
+@app.route("/most_recent")
+def most_recent():
+    """ Most recent result """
+    return MostRecentController.get()
