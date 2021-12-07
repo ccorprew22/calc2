@@ -16,7 +16,7 @@ sys.path.append(path)
 
 #Needed in order to get current dicectory
 test_data = os.path.dirname(os.path.abspath(__file__)) + "/test_data/"
-from calculator.csv_reader.CSVReader import CSVReader
+from csv_reader.CSVReader import CSVReader
 
 #from calculator.calculations.division import Division
 #pylint: enable=wrong-import-position
@@ -36,8 +36,7 @@ def test_insert_row(clear_csv_fixture):
     CSVReader.insert_row("Add", 2, 2, 4)
     CSVReader.insert_row("Add", 5, 2, 7)
     assert_frame_equal(CSVReader.show_df(), test_results)
-    new_path = os.path.dirname(os.path.abspath("tests"))
-    os.remove(new_path+"/calculator/csv_reader/results.csv")
+    CSVReader.delete_csv()
     CSVReader.insert_row("Add", 4,5,9)
     assert len(CSVReader.show_df()) == 1
 

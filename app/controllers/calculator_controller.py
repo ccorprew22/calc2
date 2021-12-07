@@ -4,7 +4,7 @@ from flask import render_template, flash, request
 from app.controllers.controller import ControllerBase
 from calculator.calculator import Calc
 from calculator.history.history import History
-from calculator.csv_reader.CSVReader import CSVReader
+from csv_reader.CSVReader import CSVReader
 
 
 class CalculatorController(ControllerBase):

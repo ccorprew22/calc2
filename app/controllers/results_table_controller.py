@@ -2,7 +2,7 @@
 
 from flask import render_template
 from app.controllers.controller import ControllerBase
-from calculator.csv_reader.CSVReader import CSVReader
+from csv_reader.CSVReader import CSVReader
 
 class ResultsTableController(ControllerBase):
     """ Result Table response controller """

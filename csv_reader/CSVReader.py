@@ -39,6 +39,14 @@ class CSVReader:
         return True
 
     @staticmethod
+    def delete_csv():
+        """ Delete result csv """
+        results_path = os.path.dirname(os.path.abspath(__file__))+"/results.csv"
+        os.remove(results_path)
+        return True
+
+
+    @staticmethod
     def csv_to_json():
         """ Converts csv to dictionary """
         csv = pd.read_csv(os.path.dirname(os.path.abspath(__file__)) + "/results.csv")
@@ -58,3 +66,4 @@ class CSVReader:
         return d
 
 CSVReader.clear_csv()
+#CSVReader.delete_csv()
