@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="card card-size mx-auto text-center">
-    <h1>Most Recent Result</h1>
+  <div class="card card-size mx-auto text-center card-top-padding">
+    <h1 class="calc-font">Most Recent Result</h1>
     {% if last|length == 0 %}
       <p class="most-recent">No values available yet.</p>
     {% else %}

@@ -10,9 +10,13 @@ font-size: 200%;
   font-size: 90%;
 }
 
+.vid-center{
+  text-align: center;
+}
+
 .header-padding{
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .logo-size{
@@ -23,8 +27,7 @@ font-size: 200%;
 }
 
 .index-logo{
-  width: 20%;
-  height: 100%;
+  width: 10%;
   margin-right: 0px;
   padding: 0px;
 }
@@ -33,12 +36,52 @@ font-size: 200%;
   width: 30%;
 }
 
+.index-card-size{
+  width: 80%;
+}
+
+.result-card-size{
+  width: 70%;
+}
+
+.title{
+  font-family: 'Orbitron', sans-serif;
+  font-size: 150%;
+}
+
+.nav-title{
+  font-family: 'Orbitron', sans-serif;
+  font-size: 50%;
+}
+
+.nav-list{
+  font-family: 'Orbitron', sans-serif;
+  font-size: 100%;
+}
+
+.calc-font{
+  font-family: 'Orbitron', sans-serif;
+}
+
+.card-top-padding{
+  margin-top: 15px;
+  padding-top: 10px;
+}
+
+.calc-title{
+  padding-top: 10px;
+}
 .result{
   font-size: 30px;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .brand-size{
-  width: 15%
+  width: 15%;
+}
+
+.image-size{
+  width: 20%;
 }
 
 div.l {

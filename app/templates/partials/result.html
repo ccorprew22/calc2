@@ -1,10 +1,9 @@
 <div class="result">
+  <br>
 {% if result|length %}
-    <strong>Operation: {{ operation }} </strong>  <br>
-    <strong> {{ value1 }} {{ symbol }} {{value2}} </strong> <br>
-    <strong>Result: {{ result }}</strong>
+    <h3> {{ value1 }} {{ symbol }} {{value2}} = {{ result }} </h3> <br>
 
 {% else %}
-    <p class="result-starter">Press enter to calculate numbers</p>
+    <h3 class="result-starter">Press enter to calculate numbers</h3>
 {% endif %}
 </div>

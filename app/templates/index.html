@@ -7,10 +7,16 @@
     </style>
 {% endblock %}
 {% block content %}
-  <div class="card card-size mx-auto text-center">
-    <h1>Calculator<img class="index-logo d-inline-block align-middle" src="{{ url_for('static', filename='images/calculator.jpg') }}"></h1>
-    <p class="important">
+  <div class="card index-card-size mx-auto text-center card-top-padding">
+    <h1 class="title">Calculator<img class="index-logo d-inline-block align-middle" src="{{ url_for('static', filename='images/calculator.jpg') }}"></h1>
+    <p class="">
       Welcome to my calculator. Click <a href="/calculator">here</a> to do some math!
     </p>
+    <p>Here is an example of how the app works.</p>
+    <div class="vid-center">
+      <video width="800" height="600" controls>
+        <source src="{{ url_for('static', filename='images/calc2.mp4') }}"" type=video/ogg>
+      </video>
+    </div>
   </div>
 {% endblock %}
