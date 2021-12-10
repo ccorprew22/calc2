@@ -6,7 +6,6 @@ from calculator.calculator import Calc
 from calculator.history.history import History
 from csv_reader.CSVReader import CSVReader
 
-
 class CalculatorController(ControllerBase):
     """ Calculator form response controller """
     @staticmethod

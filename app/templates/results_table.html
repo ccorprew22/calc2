@@ -4,7 +4,6 @@
 <body>
   <div class="card result-card-size mx-auto text-center card-top-padding">
 
-
   <table id="data" class="table table-striped">
     <thead>
       <tr>
@@ -27,6 +26,9 @@
       {% endfor %}
     </tbody>
   </table>
+  <form action="/results_table" method="post">
+    <input class="btn btn-light button-bottom-padding" name="Clear" type="submit" value="Clear">
+  </form>
   </div>
 {% endblock %}
   <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

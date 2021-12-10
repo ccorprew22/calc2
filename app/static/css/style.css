@@ -6,12 +6,24 @@ font-size: 200%;
   font-size: 75%;
 }
 
+
+
 .most-recent{
   font-size: 90%;
 }
 
+.vid-border{
+  border: 5px solid black;
+  width: 800px;
+  height: 450px;
+}
+
 .vid-center{
   text-align: center;
+}
+
+.button-bottom-padding{
+  padding-bottom: 10px;
 }
 
 .header-padding{

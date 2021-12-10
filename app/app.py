@@ -29,9 +29,11 @@ def basicform():
         return CalculatorController.post()
     return CalculatorController.get()
 
-@app.route("/results_table")
+@app.route("/results_table", methods=['GET', 'POST'])
 def results_table():
     """ Results Table Route """
+    if request.method == 'POST':
+        return ResultsTableController.post()
     return ResultsTableController.get()
 
 @app.route("/most_recent")
