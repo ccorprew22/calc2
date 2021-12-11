@@ -6,4 +6,6 @@
 ![Build](readme_images/part4_build_test.png)
 
 + Application Tutorial Video
-![Tutorial]()
+![Tutorial](https://user-images.githubusercontent.com/43766100/145667926-0eae9426-294f-4d86-8d6c-87f3d4117e27.mp4)
+
+
