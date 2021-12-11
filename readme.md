@@ -6,4 +6,4 @@
 ![Build](readme_images/part4_build.png)
 
 + Application Tutorial Video
-![Tutorial](readme_images/calc2-vid.mp4)
+![Tutorial]()
