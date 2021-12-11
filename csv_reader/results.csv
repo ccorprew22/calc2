@@ -1,1 +1,4 @@
 ,Operation,Value1,Value2,Result
+1,Add,1,2,3
+2,Add,2,2,4
+3,Add,5,2,7
