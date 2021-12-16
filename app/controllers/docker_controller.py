@@ -1,11 +1,11 @@
-""" OOP controller """
+""" Docker controller """
 
 from flask import render_template
 from app.controllers.controller import ControllerBase
 
-class OOPController(ControllerBase):
+class DockerController(ControllerBase):
     """ Index response controller """
     @staticmethod
     def get():
         """ Index Route Response """
-        return render_template('oop_principles.html')
+        return render_template('docker.html')
