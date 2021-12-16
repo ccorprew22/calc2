@@ -9,11 +9,4 @@
 + If it doesn't work at first on Docker, you may have to `pip install -r requirements` inside of a terminal inside of flask on Pycharm, delete all past images, build it again, and then it should work.
 
 # Build Status
-![Build](readme_images/pytest-cov.png)
-
-
-
-
-
-
-
+![Build](readme_images/pytest-coverage.png)
