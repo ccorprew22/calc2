@@ -1,41 +1,28 @@
 {% extends "base.html" %}
-{% block title %}Index{% endblock %}
-{% block head %}
-    {{ super() }}
-    <style type="text/css">
-        .important {
-            color: #336699;
-        }
-    </style>
-{% endblock %}
 {% block content %}
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html" />
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    {% endblock %}
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <title>Calculator</title>
+  </head>
 
-  <title>IS 218 Tutorial</title>
+<body>
 
-  <meta name="author" content="SitePoint">
-
-  <meta property="og:title" content="IS 218 Tutorial">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
-  <meta property="og:description" content="A simple HTML5 Template for new projects.">
-  <meta property="og:image" content="image.png">
-
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
-
-</head>
-
-<body class="background-color">
-
-  <div class="card card-size mx-auto">
+  <div class="card card-size-past mx-auto card-top-padding">
     <div class="card-body">
       <h2 class="card-title">Pylint and Coding Standards</h2>
       <h4>Pylint</h4>
@@ -46,13 +33,13 @@
         <li>Some default rules for pylint are not wanted by certain teams, so to remove certain errors, you have to create a
         <code>.pylintrc</code> file. In this file, write <code>disable={error_name or error_code}</code></li>
         <li>Another option would be to use inline disables and enables in your code.</li>
-        <img src="images/pylint.png" class="remote-img">
+        <img src="{{ url_for('static', filename='images/pylint.png') }}" class="remote-img">
         <li>To look at an example of a passed test in a functioning terminal, click this link to <a href="https://app.travis-ci.com/github/ccorprew22/calc2">travis-ci</a>.</li>
       </ul>
     </div>
   </div>
   <br>
-  <div class="card card-size mx-auto">
+  <div class="card card-size-past mx-auto">
     <div class="card-body">
       <h2 class="card-title">Object Oriented Programming Terms Glossary</h2>
       <ul>

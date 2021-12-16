@@ -1,40 +1,28 @@
 {% extends "base.html" %}
-{% block title %}Index{% endblock %}
-{% block head %}
-    {{ super() }}
-    <style type="text/css">
-        .important {
-            color: #336699;
-        }
-    </style>
-{% endblock %}
+
 {% block content %}
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html" />
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    {% endblock %}
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <title>Calculator</title>
+  </head>
 
-  <title>IS 218 Tutorial</title>
+<body>
 
-  <meta name="author" content="SitePoint">
-
-  <meta property="og:title" content="IS 218 Tutorial">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
-  <meta property="og:description" content="A simple HTML5 Template for new projects.">
-  <meta property="og:image" content="image.png">
-
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
-
-</head>
-
-<body class="background-color">
-
-  <div class="card card-size mx-auto">
+  <div class="card card-size-past mx-auto card-top-padding">
     <div class="card-body">
       <h2 class="card-title">Calculator Program and Object Oriented Principles</h2>
       <p> The calculator program uses many of the object oriented principles </p>
@@ -44,18 +32,18 @@
         in the abstract class, so then the class can be implemented in different ways for each child class.
         For example, turning the tuple values into floats can be done in the abstract class so that
         it doesn't have to be written in each following class.</li>
-        <img src="images/abstraction.png" class="code-sample">
+        <img src="{{ url_for('static', filename='images/abstraction.png') }}" class="code-sample">
         Look at the example <a href="https://github.com/ccorprew22/calc2/blob/static/calculator/calculations/calculation.py">here</a>.
         <li>Inheritance: Inheritance is when a class inherits the methods of a parent class. This is done so that code isn't
         written repeatedly. For example, the calculation class will have a method that turns values into a float. So instead
         of re wrting this method several times in the addition and substraction classes, you can inherit the calculation method so that
         you can use that existing method and these new classes can now focus on writing unique methods.</li>
-        <img src="images/inheritance.png" class="code-sample">
+        <img src="{{ url_for('static', filename='images/inheritance.png') }}" class="code-sample">
         Look at the example <a href="https://github.com/ccorprew22/calc2/blob/static/calculator/calculations/addition.py">here</a>.
         <li>Encapsulation: Encapsulation is the the priciple of restricting access to certain data. For example, in the Calculator
         program, the history class has a history list, which shouldn't be accessible to anyone outside of the class unless there
         is a method made with the ability to share desired pieces of that list.</li>
-        <img src="images/history_class.png" class="code-sample">
+        <img src="{{ url_for('static', filename='images/history_class.png') }}" class="code-sample">
         Look at the example <a href="https://github.com/ccorprew22/calc2/blob/static/calculator/history/history.py">here</a>.
         <li>Polymorphism: Polymorphsim is the ability to perform a function with multiple implementations. In the Calculator
         program, we have our calculation class that takes a list of values. We then have several child classes that inherits
@@ -68,7 +56,6 @@
   </div>
   <br>
 
-  </div>
 </body>
 </html>
 {% endblock %}

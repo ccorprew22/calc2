@@ -99,3 +99,17 @@ font-size: 200%;
 div.l {
   text-align: left;
 }
+
+.card-size-past{
+  width: 90%;
+}
+
+.remote-img{
+  max-width: 50%;
+  height: auto;
+}
+
+.code-sample{
+  max-width:25%;
+  height:auto;
+}
