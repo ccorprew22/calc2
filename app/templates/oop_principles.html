@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important {
+            color: #336699;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>IS 218 Tutorial</title>
+
+  <meta name="author" content="SitePoint">
+
+  <meta property="og:title" content="IS 218 Tutorial">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+  <meta property="og:description" content="A simple HTML5 Template for new projects.">
+  <meta property="og:image" content="image.png">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body class="background-color">
+
+  <div class="card card-size mx-auto">
+    <div class="card-body">
+      <h2 class="card-title">Calculator Program and Object Oriented Principles</h2>
+      <p> The calculator program uses many of the object oriented principles </p>
+      <ol>
+        <li>Abstraction: Abstraction is the principle that creates a class with the intent to be inherited by other classes.
+        This way certain methods and functions that will be run by default for each child class will already be once
+        in the abstract class, so then the class can be implemented in different ways for each child class.
+        For example, turning the tuple values into floats can be done in the abstract class so that
+        it doesn't have to be written in each following class.</li>
+        <img src="images/abstraction.png" class="code-sample">
+        Look at the example <a href="https://github.com/ccorprew22/calc2/blob/static/calculator/calculations/calculation.py">here</a>.
+        <li>Inheritance: Inheritance is when a class inherits the methods of a parent class. This is done so that code isn't
+        written repeatedly. For example, the calculation class will have a method that turns values into a float. So instead
+        of re wrting this method several times in the addition and substraction classes, you can inherit the calculation method so that
+        you can use that existing method and these new classes can now focus on writing unique methods.</li>
+        <img src="images/inheritance.png" class="code-sample">
+        Look at the example <a href="https://github.com/ccorprew22/calc2/blob/static/calculator/calculations/addition.py">here</a>.
+        <li>Encapsulation: Encapsulation is the the priciple of restricting access to certain data. For example, in the Calculator
+        program, the history class has a history list, which shouldn't be accessible to anyone outside of the class unless there
+        is a method made with the ability to share desired pieces of that list.</li>
+        <img src="images/history_class.png" class="code-sample">
+        Look at the example <a href="https://github.com/ccorprew22/calc2/blob/static/calculator/history/history.py">here</a>.
+        <li>Polymorphism: Polymorphsim is the ability to perform a function with multiple implementations. In the Calculator
+        program, we have our calculation class that takes a list of values. We then have several child classes that inherits
+        the constructor class and uses this list to return varying math results.
+        Look at the calculation class and its child classes in full effect <a href="https://github.com/ccorprew22/calc2/tree/static/calculator/calculations">here</a>.
+        </li>
+
+      </ol>
+    </div>
+  </div>
+  <br>
+
+  </div>
+</body>
+</html>
+{% endblock %}
